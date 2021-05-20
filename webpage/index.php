@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$db = new PDO('mysql:host=localhost;dbname=blog', 'navruz', 'Mqq17Kd5qbW5aWKl');
+$db = new PDO('mysql:host=localhost;dbname=blog', 'umid', 'Mqq17Kd5qbW5aWKl');
 $stmt = $db->prepare('SELECT password FROM users WHERE username=?');
 $get_posts_stmt = $db->prepare('SELECT fullname, title, body, publishDate FROM users u JOIN posts p ON u.id=p.userId WHERE username=?');
 $add_post = $db->prepare('INSERT INTO posts(title, body, publishDate, userId) VALUES (?,?,CURRENT_DATE(), (SELECT id FROM users WHERE username=?))');
